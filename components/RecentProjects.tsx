@@ -47,17 +47,13 @@ const RecentProjects = () => {
             >
               {/* image */}
               <div className="relative aspect-video overflow-hidden">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                />
+              <Image
+              src={item.img}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
                 {/* overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -78,12 +74,13 @@ const RecentProjects = () => {
                         backdrop-blur-md
                       "
                     >
-                      <Image
-                        src={icon}
-                        alt="tech stack"
-                        width={18}
-                        height={18}
-                      />
+                    <Image
+                      src={icon}
+                      alt="tech stack"
+                      width={18}
+                      height={18}
+                      className="h-auto w-auto object-contain"
+                    />
                     </div>
                   ))}
                 </div>

@@ -63,7 +63,7 @@ const Experience = () => {
                       alt={card.title}
                       width={36}
                       height={36}
-                      className="object-contain"
+                      className="h-auto w-auto object-contain"
                     />
                   </div>
                 )}
