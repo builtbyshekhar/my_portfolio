@@ -1,64 +1,113 @@
-import { FaLocationArrow } from "react-icons/fa";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import MagicButton from "@/components/ui/MagicButton";
-import { BackgroundGradientAnimation } from "./ui/GradientBg";
+import { FaArrowRight, FaGithub } from "react-icons/fa6";
+
+const stack = [
+  {
+    title: "LLM Workflows",
+    desc: "Prompt pipelines • RAG • streaming",
+    style: "top-8 left-8",
+  },
+  {
+    title: "Next.js 15",
+    desc: "Server Actions • App Router • Edge",
+    style: "top-40 right-6",
+  },
+  {
+    title: "TypeScript",
+    desc: "Type-safe APIs & scalable frontend architecture",
+    style: "bottom-24 left-16",
+  },
+  {
+    title: "Python",
+    desc: "Data pipelines • AI tooling • backend services",
+    style: "bottom-8 right-10",
+  },
+];
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="top-10 left-full h-[80vh] w-[50vw]"
-          fill="white"
-        />
-        <Spotlight
-          className="top-28 left-80 h-[80vh]"
-          fill="blue"
-        />
-      </div>
+    <section className="relative min-h-screen overflow-hidden bg-[#060606] text-white">
+      {/* background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(120,119,198,0.18),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(255,255,255,0.06),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(99,102,241,0.15),transparent_35%)]" />
 
-      <div className="relative flex h-[50rem] w-full items-center justify-center bg-white dark:bg-black">
-        <BackgroundGradientAnimation>
-          <div
-            className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2] absolute top-0 left-0 flex items-center justify-center"
-          />
+      {/* subtle grid */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-          <div
-            className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-          />
-
-          <div className="flex justify-center relative my-20 z-10">
-            <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-              <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-                Dynamic Web Magic with Next.js
-              </h2>
-
-              <TextGenerateEffect
-                className="text-center text-[40px] md:text-5xl lg:text-6xl"
-                words="Transforming Concepts into Seamless User Experiences"
-              />
-
-              <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-                Hi, I&apos;m Shekhar, a Next.js Developer based in India
-              </p>
-
-              <a href="#about">
-                <MagicButton
-                  title="Show my work"
-                  icon={<FaLocationArrow />}
-                  position="right"
-                />
-              </a>
-            </div>
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-16 px-6 py-24 lg:grid-cols-2 lg:px-10">
+        {/* LEFT */}
+        <div>
+          {/* status */}
+          <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-xl">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-sm tracking-wide text-zinc-300">
+              Available for Full-Stack & AI Engineering Roles
+            </span>
           </div>
-        </BackgroundGradientAnimation>
+
+          {/* heading */}
+          <h1 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl lg:text-8xl leading-[0.95]">
+            Building
+            <span className="block text-zinc-500">Digital Products</span>
+            <span className="block bg-gradient-to-r from-white via-zinc-300 to-zinc-600 bg-clip-text text-transparent">
+              with Intelligence
+            </span>
+          </h1>
+
+          {/* copy */}
+          <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
+            I’m Shekhar — a full-stack engineer crafting AI-native products with
+            <span className="text-zinc-200"> Next.js, TypeScript, Python</span>{" "}
+            and modern backend architecture. From polished frontend experiences
+            to scalable APIs and intelligent systems.
+          </p>
+
+          {/* buttons */}
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#projects"
+              className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-7 py-4 font-medium text-black transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/10"
+            >
+              View Projects
+              <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+
+            <a
+              href="https://github.com/builtbyshekhar"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/10 bg-white/[0.02] px-7 py-4 font-medium text-white backdrop-blur-xl transition hover:bg-white/[0.05]"
+            >
+              <FaGithub />
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+        <div className="relative hidden h-[560px] lg:block">
+          {/* center orb */}
+          <div className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-white/10 to-indigo-500/20 blur-3xl" />
+
+          {/* floating cards */}
+          {stack.map((item) => (
+            <div
+              key={item.title}
+              className={`absolute ${item.style} w-64 rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-2xl shadow-2xl transition duration-500 hover:-translate-y-2 hover:bg-white/[0.05]`}
+            >
+              <h3 className="text-lg font-semibold text-white">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-zinc-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+
+          {/* connection lines */}
+          <div className="absolute left-1/2 top-1/2 h-[1px] w-[320px] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <div className="absolute left-1/2 top-1/2 h-[320px] w-[1px] -translate-y-1/2 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

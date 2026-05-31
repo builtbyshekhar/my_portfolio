@@ -1,31 +1,30 @@
-"use client";
-import Approach from "@/components/Approach";
-import Clients from "@/components/clients";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
-import Grid from "@/components/Grid";
-import Hero from "@/components/Hero";
-import RecentProjects from "@/components/RecentProjects";
 import { FloatingNav } from "@/components/ui/FloatingNav";
+import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import RecentProjects from "@/components/RecentProjects";
+import Footer from "@/components/Footer";
 import { navItems } from "@/data";
 
-const Home = () => {
+export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col ovn mx-auto sm:px-10 px-5 overflow-clip">
-      <div className="max-w-7xl w-full">
-        <FloatingNav navItems={navItems} className="mt-20"/>
-        <Hero/>
-        <Grid/>
-        <RecentProjects/>
-        <Clients/>
-        <Experience/>
-        <Approach/>
-        <Footer/>
+    <main className="relative min-h-screen overflow-x-hidden bg-[#060606] text-white">
+      <FloatingNav navItems={navItems} />
+
+      <div className="relative z-10 flex flex-col">
+        <Hero />
+
+        <section className="mx-auto w-full max-w-7xl px-6 lg:px-10">
+          <Experience />
+        </section>
+
+        <section className="mx-auto mt-32 w-full max-w-7xl px-6 lg:px-10">
+          <RecentProjects />
+        </section>
+
+        <section className="mx-auto mt-32 w-full max-w-7xl px-6 lg:px-10">
+          <Footer />
+        </section>
       </div>
     </main>
   );
-};
-
-export default Home;
-
-
+}

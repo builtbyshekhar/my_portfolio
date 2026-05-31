@@ -1,40 +1,123 @@
-import React from 'react'
-import MagicButton from './ui/MagicButton'
-import { FaLocationArrow } from 'react-icons/fa'
-import { socialMedia } from '@/data'
+import React from "react";
+import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa6";
+import { socialMedia } from "@/data";
 
 const Footer = () => {
   return (
-    <footer className="w-full pt-20 pb-10 mb-[100px] md:mb-5" id='contact'>
+    <footer
+      id="contact"
+      className="relative mt-32 border-t border-white/10 py-28"
+    >
+      {/* top glow */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        <div className='flex flex-col items-center'>
-            <h1 className='heading lg:max-w-[45vw]'>Ready to take <span className='text-purple'>your</span> digital presence to the next level?</h1>
-            <p className='text-white-200 md:mt-10 my-5 text-center'>Reach out to me today and let&apos;s discuss how I can help acheive your goals</p>
-            <a href="mailto:shekharchaudhary870950@gmail.com">
-                <MagicButton
-                title="Let's get in touch"
-                icon={<FaLocationArrow/>}
-                position='right'
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        {/* CTA */}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-sm uppercase tracking-[0.2em] text-zinc-500">
+            Contact
+          </p>
+
+          <h2 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            Let&apos;s build something
+            <span className="block text-zinc-400">
+              meaningful together
+            </span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
+            I’m currently open to full-stack engineering roles, product
+            collaborations, and building AI-native digital experiences.
+            If you have an idea or opportunity in mind, I’d love to hear about it.
+          </p>
+
+          {/* CTA button */}
+          <a
+            href="mailto:shekharchaudhary870950@gmail.com"
+            className="
+              group
+              mt-10
+              inline-flex
+              items-center
+              gap-3
+              rounded-2xl
+              border border-white/10
+              bg-white/[0.04]
+              px-7 py-4
+              text-sm
+              font-medium
+              text-white
+              backdrop-blur-xl
+              transition-all
+              duration-300
+              hover:bg-white/[0.06]
+              hover:-translate-y-1
+            "
+          >
+            Say Hello
+            <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
+        </div>
+
+        {/* bottom */}
+        <div
+          className="
+            mt-24
+            flex
+            flex-col-reverse
+            items-center
+            justify-between
+            gap-8
+            border-t border-white/10
+            pt-8
+            md:flex-row
+          "
+        >
+          {/* copyright */}
+          <p className="text-center text-sm text-zinc-500 md:text-left">
+            © {new Date().getFullYear()} Shekhar Anand Chaudhary. All rights reserved.
+          </p>
+
+          {/* socials */}
+          <div className="flex items-center gap-4">
+            {socialMedia.map((profile) => (
+              <a
+                key={profile.id}
+                href={profile.link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Social ${profile.id}`}
+                className="
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  backdrop-blur-md
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:bg-white/[0.05]
+                "
+              >
+                <Image
+                  src={profile.img}
+                  alt="social icon"
+                  width={20}
+                  height={20}
+                  className="opacity-70 transition-opacity hover:opacity-100 invert"
                 />
-            </a>
+              </a>
+            ))}
+          </div>
         </div>
-
-        <div className='flex mt-16 md:flex-row justify-between items-center'>
-            <p className='md:text-base text-sm
-            md:font-normal font-light'>Copyright © 2024 Shekhar Anand Chaudhary</p>
-            <div className='flex items-center md:gap-3 gap-6'>
-                {socialMedia.map((profile) =>(
-                    <div key={profile.id} className='w-10 h-10 flex cursor-pointer justify-center
-                    items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75
-                    bg-black-200 rounded-lg border border-black-300'>
-                        <img src={profile.img} alt={`${profile.id}`} width={20} height={20}/>
-                    </div>
-                ))}
-            </div>
-        </div>
-
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
