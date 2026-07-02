@@ -3,11 +3,8 @@ import { workExperience } from "@/data";
 
 const Experience = () => {
   return (
-    // <section id="experience" className="relative py-20 sm:py-32">
     <section id="experience" className="relative pt-20 sm:pt-32 pb-10 sm:pb-16"> 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        
-        {/* heading */}
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs sm:text-sm uppercase tracking-[0.2em] text-zinc-500">
             Experience
